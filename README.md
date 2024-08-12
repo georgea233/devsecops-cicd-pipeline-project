@@ -1,1 +1,1 @@
-# gedevsecops-cicd-pipeline-project
+# devsecops-cicd-pipeline-project
