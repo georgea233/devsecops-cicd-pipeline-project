@@ -20,7 +20,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'dev-sec-ops-cicd-pipeline-project-one', url: 'https://github.com/awanmbandi/realworld-microservice-project.git'
+                git branch: 'main', url: 'https://github.com/georgea233/devsecops-cicd-pipeline-project.git'
             }
         }
         stage('Install Dependencies') {
@@ -84,7 +84,7 @@ pipeline{
         stage('ZAP Dynamic Testing | DAST') {
             steps {
                 sshagent(['OWASP-Zap-Credential']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.58.161.17 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://3.145.35.206:30000/" || true'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.137.140.92 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://3.144.36.10:30000/" || true'
                                                         //JENKINS_PUBLIC_IP                                                      //EKS_WORKER_NODE_IP_ADDRESS:3000
                 }
             }
