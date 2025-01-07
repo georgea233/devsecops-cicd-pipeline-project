@@ -1,7 +1,12 @@
-# terraform {
-#   backend "s3" {
-#     bucket = "terraform-statefile-eks-dev-sec-ops-us-east-2" // Replace with your actual S3 bucket name
-#     key    = "eks/terraform.tfstate"
-#     region = "us-east-2" // You might have issues deploying this in N.Virginia, I'll suggest you use a different Region
-#   }
-# }
+
+terraform {
+  backend "s3" {
+    # Replace this with your bucket name!
+    bucket = "fluentindevops-tf-statefile"
+    key    = "fluentindevops-tf-statefile/devsecops-eks/statefile"
+    region = "us-east-2"
+
+    # Replace this with your DynamoDB table name!
+    dynamodb_table = "fluentindevops-tf-state-lock"
+  }
+}
